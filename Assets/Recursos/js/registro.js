@@ -1,17 +1,45 @@
-import {mostrarMensaje} from './recursos.js';
+import {mostrarMensaje, busquedaDomio,procesoCorreo} from './recursos.js';
+
+/**
+ * Primero generamos la busqueda para ver si existe la facultad
+ * esto lo logro mediante la busqueda del primero dato despues del @
+ */
+    let cBusqueda = $("#cpruebas");
+    cBusqueda.on('input', function(e){
+        let correoLimpiar = $(this).val();
+        
+        let proceso = procesoCorreo(correoLimpiar);
+
+        if(proceso){
+            $(this).val(proceso.correoLimpio);
+            console.log("Subdomio:: " + proceso.subdominio);
+            let subBusqueda = proceso.subdominio;
+            let msgf = $("#mostrarFac");
+            let busqueda = busquedaDomio(subBusqueda, msgf)
+            
+        }else{
+            console.log("Mamamos");
+        }
+    });
 
 
+/*
 $("#Enviar").on('click', function() {
     let npruebas = $("#nPruebas").val();
     let apruebas = $("#aPruebas").val();
-    let cpruebas = $("#cpruebas").val();
-    let upruebas = $("#upruebas").val();
+    let cpruebas = $("#cpruebas");
+
     let msgn = $("#msgn");
     let msga = $("#msga");
+    let msgf = $("#mostrarFac");
 
     mostrarMensaje(npruebas, msgn);
     mostrarMensaje(apruebas, msga);
-    if (npruebas !== "" && apruebas !== "") {
+    cpruebas.on('input', function(e){
+        let correo = $(this).val();
+        console.log(correo);
+    });
+    if (npruebas !== "" && apruebas !== "" && cpruebas !== "") {
        $.ajax({
             url: 'controllers/crearUsuarios.php',
             method: 'POST',
@@ -19,7 +47,6 @@ $("#Enviar").on('click', function() {
                 nombre: npruebas,
                 apellido:apruebas,
                 email : cpruebas,
-                username: upruebas,
                 accion: 'insertar'
             },dataType: 'json',
             success: function(response){
@@ -36,4 +63,4 @@ $("#Enviar").on('click', function() {
             }
        })
     }
-});
+});*/
