@@ -1,10 +1,11 @@
 <?php
-
-
+require_once("../models/recursosModel.php");
 class recursosController{
     public function __construct() { }
     public static function buscarFacultad($facultad){
-        
+        $recursos = new recursosModel();
+        $resultado = $recursos->consultarFacultad($facultad);
+        return $resultado;
         
     }
 }

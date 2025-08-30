@@ -1,11 +1,12 @@
 <?php
+
 class conn {
     protected $db;
 
     public function __construct() {
         $url = "localhost";
         $bdname = "proto";
-        $user = "root";
+        $user = "pia";
         $pass = "17A07n95t%Rmz!";
 
         try {
@@ -13,9 +14,9 @@ class conn {
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ]);
-            echo "Conexión exitosa a la base de datos.";
+            //echo "Conexión exitosa a la base de datos.";
         } catch (PDOException $e) {
-            die("Error en la conexión: " . $e->getMessage());
+            //die("Error en la conexión: " . $e->getMessage());
         }
     }
     /*public static function ruta(){
