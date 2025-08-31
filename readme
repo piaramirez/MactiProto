@@ -1,0 +1,46 @@
+
+
+k pezcao, espero esten very good, very, very, very good
+ya conseguí mandar a llamar la info dde keykloak, el problema que veo es que LA DOC LO DEJA CLARO, NO PODEMOS CAPTURAR LA PASS PORQUE ESTÁ HASHEADA, podemos usar programas para pasarla en texto plano, pero literal, si lo hacemos matamos el servidor porque si con un usuario tarda al quererla desifrar ¿ahora con miles?
+yo propongo lo siguiente:
+crear ua bd, la neta ya no le avancé al uml que está en Assests, pero el lunes continuo.
+porque la bsd?
+bueno, es una respuesta fácil. Keycloak y Moodle NO COMPARTEN EL MISMO ID, keycl hace propio id Moodle hace el suyo ¿entonces como sabremos que estamos llamadno la ifo de moodle? bien lo podríamos hacemos por correo, no hay tema, pero yo propngo la bd, como en el uml para poder divirlos por facultad, carrera y docente. es más facil con tener un mapeo de el usuario en las apps que estamos usando para mandarlas a llamar eso nos permitirá optimizar la página. 
+creo que es la mejor opcion.
+
+el problema que veo de la pass, añ hacer la base de datos nos puede ayudar, así la capturamos en la de nostros y la de keycloak, no es redundar daros porque el usuario puede cambiar la pass desde niestrea web, la verdad para mí es la mejor opción.
+Sí, desde key la pueden hacer, que por seguridad no tenemos que tener la pass, pero no está demás  en un caso hipotético que mura keycloak tenemos el user y pass, no perdemos ndad
+
+ahora, agradecería que en moodle pongan sus respuestas a ñp soguiente
+NO SÉ QUE PASO PERO MARCA ERROR MI README, JAJAJA
+
+hora zi
+/**
+ * Para notion
+ */
+con Node, podemos hacer que al moemtno de creaer un usuario en registrar, NO EN KEYCOK, TIENEN QUE ACEPTARLO LOS MAESTROS O ADMINS, tiene que salir la notifiacion al momento.
+En pandemia trabajaba en obsidaian estudio y desarollamos una app para una escuela con webservice, eso lo hicimos con Node, de otroa forma tendríamos que hacerlo con cronjobs, busquen un poco de ello y hacer que cada x tiempo verifique los cambios en la bd, pero creo mejor con Node.
+
+2. CUANDO SE LOOGE EL DOCENTE O ADMIN LE SALDRA "HAY UNA SOLICITUD" CUANDO LE DEN CREAR, AHORA SÍ, SE CREA EN KEYCLOAK. Honestame vine con unos amigos y ando algo distraido, unos tragos de más, ya no instalé y configuré el php mailer, pero la idea es que al crear en mactiprto/registro la solicitud llegan dos correos, al usuario que solicita con "esta en proces0-" y al admin "x usuario solicito un usuarui" al entrar el admin, con docente la lógica cambia mucho pero lo puedo hacer, crea el usuarui, se hace un usuarui con una funcion randmon tomando nombreapellido y verificando en la bd que no exuta, lo he hecho muchas veces no ay pierde, 
+cuando se crea le llega su usuario y pass que también lo hare con una función random y un token que al entrar le pedirá que cambie la pass y después se generará solo cuando entre para evitar duplicar inicios de session, quizá slo quede para cambiar pass, aun no sé JAJAJA
+lo que sí es que se hará una tabla para llevar los registros de logeos por seguridad.
+no sé si lo haga mañana en la noche o el lunes en la fes
+3.- ahora MOODLE NO PERMITE QUE SE LOGGE AUTOMATICO, UFURZA SE TIENE QUE LOGUEAR EL USUARUIO, o sea, de manera automatico al entrar en la web no logguea moodle, tiene que ser como nos enseño el maestro, que flpojeraaa, así que no sé como podemos abordar esa parte y pues ya JAJAJA
+mañama en la noche le avanzo u me pongo a estudiar sobre moodle.
+si me acuero de algo actulizo el readme, pero creo no pasará hasta mañama.
+por cierto ya tengo a un 70% el crear usario directo en keyc, pero no subo esa rama hasta mañana porque no tiene caso si no está al 100, el form de registro aun no guarda datos porque primnero quería consultar la bd con ustedes, es RAPIDOOOO NO ME TARDO MÁS DE 1O MIN EN CREAR LAS FUNCIONES.
+LA LÓGICA ES 
+BUCAMOS UN correo
+
+PRIEBAS@ARAGON.UNAM.MX
+
+TOMA EL SUB DOMNIO, ES DECIR, TOMA ARAGON Y LA BUSCA EN LA bd
+SI ECISTE ALGO RELACIONADO AL SUB TOMA EL RESULTADO, USO UN LIKE Y SOLO TENGO 3 CARGADOS, SINO EXISTE NO MUESTRA EL FORMULARIO; SOLO ES NOMBRE Y APELLIFO PORQUE SE MANDA LA SOLICITUD PARA QUE EL ADMIN O DOCENTE LOS ACEPTE :V Y EL USER Y PASS LO HAGO CON UN random
+PARA QUE SALGAN LOS INPUT ES FORZOSO QUE ACABE EN UNAM.MX
+SINO TIENE SUB, SOLO ES EJEMPLO@UNAM.MX ES CUANTA DOCENTE, ÉRO AUN NO HAGO EL FORM.
+YA MAÑANA VEMOS QUE onprogress.
+
+YA ME ACORDÉ CORRAN EL ARCHIVO DE PRUEBAS.php
+ES UN MVC ASI QUE ES 
+http://localhost/MactiProto/pruebas
+Saludos 🥳🥳🥳
