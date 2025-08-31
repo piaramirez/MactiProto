@@ -5,7 +5,16 @@ import {mostrarMensaje, busquedaDomio,procesoCorreo} from './recursos.js';
  * esto lo logro mediante la busqueda del primero dato despues del @
  */
     let cBusqueda = $("#cpruebas");
-    cBusqueda.on('input', function(e){
+    const contenedor = $("#ContEnv");
+    contenedor.on('click', '#rEnviarBtn', function(e) {
+        //console.log("Vamoooooooo");
+    });
+    contenedor.on('input', '#rNombres', async function () {
+        console.log($(this).val());
+        
+    } );
+    
+    cBusqueda.on('input', async function(e){
         let correoLimpiar = $(this).val().trim();    
         if(correoLimpiar ===""){ 
             $("#errorCorreo").html("No puedes dejar el campo vacio")
@@ -17,7 +26,6 @@ import {mostrarMensaje, busquedaDomio,procesoCorreo} from './recursos.js';
             $("#errorCorreo").html("");  
             let proceso = procesoCorreo(correoLimpiar);
             if(proceso){
-            //alert(proceso.subdominio)
                 if(proceso.subdominio){
                     if(proceso.subdominio == "unam"){
                         $("#errorCorreo").html("Sólo tengo lo de alumnos por el moento, lo siento")
@@ -26,23 +34,27 @@ import {mostrarMensaje, busquedaDomio,procesoCorreo} from './recursos.js';
                         console.log("Subdomio:: " + proceso.subdominio);
                         let subBusqueda = proceso.subdominio;
                         let msgf = $("#mostrarFac");
-                        let resultado= busquedaDomio(subBusqueda, msgf);
+                        try{
+                            let resultado= await busquedaDomio(subBusqueda, msgf);
+                            contenedor.empty(); 
+                            if(resultado){
+                                const iNombre = $('<input>', { type: 'text', id: 'rNombres', placeholder: 'Escribe tu nombre' });
+                                const iApellido = $('<input>', { type: 'text', id: 'rApellidos', placeholder: 'Escribe tus apellidos' });
+                                const btnEnviar = $('<button>', { id: 'rEnviarBtn', text: 'Enviar', type: 'button' });
+                                contenedor.append(iNombre, '<br>', iApellido, '<br>', btnEnviar);
+                                /**
+                                 * No sé que opines fer, pero hasta que se llenen los campos se habilida el btn, se me ocurre
+                                 * ¿qupe propones tú?
+                                 */
+                                
+                                //let lNombre = limpiarInputs(iNombre, iApellido);
+                            }
+                        }  catch(err){
+                            console.error("Error en búsqueda:", err);
+                           $("#ContEnv").empty();
+                        }                     
                     }
                 }
-            
-            let subBusqueda = proceso.subdominio;
-            let msgf = $("#mostrarFac");
-            let resultado= busquedaDomio(subBusqueda, msgf);
-            if(resultado){
-                const contenedor = $("#ContEnv");
-                contenedor.empty();
-                const inputNombre = $('<input>', { type: 'text', id: 'inputNombre', placeholder: 'Nombre' });
-                const inputApellido = $('<input>', { type: 'text', id: 'inputApellido', placeholder: 'Apellido' });
-                const btnEnviar = $('<button>', { id: 'btnEnviar', text: 'Enviar', type: 'button' });
-                contenedor.append(inputNombre, '<br>', inputApellido, '<br>', btnEnviar);
-            } else {
-                $("#ContEnv").html("<p>No existe ese dominio</p>");
-            }
             }else{
                 console.log("Mamamos");
             }

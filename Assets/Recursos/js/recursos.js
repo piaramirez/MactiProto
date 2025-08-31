@@ -6,6 +6,7 @@ export function mostrarMensaje(valorInput, msg) {
     }
 }
 export function busquedaDomio(correo, msg){
+
     let subdominio = correo;
     return new Promise((resolve, reject) => {
         $.ajax({
@@ -36,7 +37,7 @@ export function busquedaDomio(correo, msg){
                     if(msg) $(msg).html(html);
                     resolve(true);
                 } else {
-                    html = `<input type="text" value="Imoruma" data-id="1" readonly><br>`;
+                    html = `<p>No existe tu facultad</p>`;
                     if(msg) $(msg).html(html);
                     resolve(false);
                 }
