@@ -6,8 +6,8 @@ class conn {
     public function __construct() {
         $url = "localhost";
         $bdname = "proto";
-        $user = "pia";
-        $pass = "17A07n95t%Rmz!";
+        $user = "root";
+        $pass = "";
 
         try {
             $this->db = new PDO("mysql:host=$url;dbname=$bdname;charset=utf8mb4", $user, $pass, [

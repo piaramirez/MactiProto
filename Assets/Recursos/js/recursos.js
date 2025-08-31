@@ -23,13 +23,13 @@ export function busquedaDomio(correo, msg){
                     if(Array.isArray(response.respuesta)){
                         response.respuesta.forEach(fac => {
                             html += `
-                                <input type="text" value="${fac.nombre}" data-id="${fac.idFac}" readonly>
+                                <input type="text" value="${fac.nombre}" data-id="${fac.idFac}" id="inpFac" readonly>
                                 <br>
                             `;
                         }); 
                     } else {
                         html = `
-                            <input type="text" value="${response.respuesta.nombre}" data-id="${response.respuesta.idFac}" readonly>
+                            <input type="text" value="${response.respuesta.nombre}" data-id="${response.respuesta.idFac}" id="inpFac"  readonly>
                             <br>
                         `;
                         
@@ -76,4 +76,19 @@ export function procesoCorreo(correo) {
         subdominio: sub,
         dominio: dominioCompleto
     };
+}
+export function limpiarInputs(valor) {
+    let limpio = valor.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, ''); 
+    limpio = limpio.replace(/\s+/g, ' ');
+    limpio = limpio.trimStart(); 
+    return limpio;
+}
+export function cBtn(datos, e){
+    if(datos[0] === "" || datos[1] === "") {
+    e.html("Los campos son obligatorios");
+    $("#btnEnv").prop('disabled', true);
+} else {
+    e.html("");
+    $("#btnEnv").prop('disabled', false);
+}
 }

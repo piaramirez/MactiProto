@@ -17,6 +17,7 @@
             <div id="errorCorreo"></div>
             <div id="mostrarFac"></div>
             <div id="ContEnv"></div>
+            <div id="btnEnv"></div>
         </form>   
 </body>
 <script type="module" src="Assets/Recursos/js/registro.js"></script>
